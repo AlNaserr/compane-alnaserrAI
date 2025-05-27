@@ -102,8 +102,8 @@
         <label for="name">الاسم</label>
         <input type="text" id="name" name="name" placeholder="ادخل اسمك" required />
 
-        <label for="email">رقم الوتس</label>
-        <input type="email" id="email" name="email" placeholder="ادخل بريدك" required />
+        <label for="email">الايميل</label>
+        <input type="email" id="email" name="email" placeholder="الايميل" required />
 
         <label for="message">رسالتك</label>
         <textarea id="message" name="message" placeholder="اكتب رسالتك هنا" required></textarea>
@@ -120,12 +120,34 @@
             <a href=""target="_blank"> <i class="fab fa-telegram" ></i> telegram </a>
             <a href="https://we.me/963994939783"> <i class="fab fa-whatsapp"></i> WhatsApp </a>
             <a href="https://www.linkedin.com/in/muhammadnasr-aladdin-572360352?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"> <i class="fab fa-linkedin"></i> linkedin </a>
-            <a href="#"> <i class="fab fa-github"></i> github </a>
+            <a href="https://github.com/AlNaserr"> <i class="fab fa-github"></i> github </a>
         </div>
 
      <div class="credit"> AlNser compane mr. Muhammad naser || compane manegar</div>
     <p>© 2025 شركة الناصرر - جميع الحقوق محفوظة</p>
 </footer>
+<!-- سكربت EmailJS -->
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
 
+<script type="text/javascript">
+  (function(){
+    emailjs.init("LrIEYaGagWxoKA-SV"); // public key
+  })();
+
+  document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    emailjs.sendForm('Naser123456qwer', 'template_of1etmd', this)
+      .then(function(response) {
+        document.getElementById("form-message").innerText = "تم إرسال الرسالة بنجاح!";
+        document.getElementById("btn-primary").style.color ="green";
+
+      }, function(error) {
+        document.getElementById("form-message").innerText = "حدث خطأ، حاول مرة أخرى!";
+      });
+  });
+</script>
 </body>
 </html>
